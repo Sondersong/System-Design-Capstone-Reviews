@@ -5,14 +5,19 @@ connection = psycopg2.connect(host='localhost', dbname='SDC-Reviews', user='post
 
 cursor = connection.cursor()
 
-f = open('./Reviews-Schema.sql', 'r')
+f = open('ETL/Reviews-Schema.sql', 'r')
 schema = f.read()
 f.close
 
-schemaCommands = schema.spl(';')
+schemaCommands = schema.split(';')
+
 
 for command in schemaCommands:
-  cursor.execute(command)
+  if command:
+    try:
+      cursor.execute(command)
+    except:
+      print('The serve is probs already defined')
 
 connection.commit()
 
