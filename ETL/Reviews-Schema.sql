@@ -33,7 +33,7 @@ CREATE TABLE "Main/IndividualReview"(
     "Recommended" BOOLEAN NOT NULL,
     "Response" VARCHAR(255) NOT NULL,
     "Body" TEXT NOT NULL,
-    "Date" DATE NOT NULL,
+    "Date" VARCHAR(255) NOT NULL,
     "ReviewerName" VARCHAR(255) NOT NULL,
     "Helpfulness" INTEGER NOT NULL
 );

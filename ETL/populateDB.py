@@ -1,5 +1,5 @@
 import pandas as pd
-import sqlalchemy
+import psycopg2
 import os
 from dotenv import load_dotenv
 
@@ -9,10 +9,14 @@ host = os.getenv('ADDRESS')
 user = os.getenv('ACCOUNT')
 password = os.getenv('PASSWORD')
 
-connection = sqlalchemy.create_engine('postgresql://{2}:{0}@{1}:5432/SDC-Reviews'.format(password, host, user))
+connection = psycopg2.connect(host=host, dbname='SDC-Reviews', user=user, password=password)
 
-fs = pd.read_csv('ETL/data/usableData/characteristic_reviews.csv')
+cursor = connection.cursor()
 
-print(fs)
+with open('ETL/data/usableData/characteristic_reviews.csv', 'r') as file:
+    next(file)
+    cursor.copy_from(file, 'testTable', sep=',')
 
-# fs.to_sql('testTable', connection, if_exists='replace', chunksize='100')
+connection.commit()
+cursor.close()
+connection.close()
