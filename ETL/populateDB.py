@@ -1,20 +1,18 @@
 import pandas as pd
+import sqlalchemy
 import os
-import psycopg2
 from dotenv import load_dotenv
 
-# load_dotenv()
+load_dotenv()
 
-# host = os.getenv('ADDRESS')
-# host = os.getenv('USER')
-# host = os.getenv('PASSWORD')
+host = os.getenv('ADDRESS')
+user = os.getenv('ACCOUNT')
+password = os.getenv('PASSWORD')
 
-# connection = psycopg2.connect(host='localhost', dbname='SDC-Reviews', user='postgres', password='postgresPassword')
+connection = sqlalchemy.create_engine('postgresql://{2}:{0}@{1}:5432/SDC-Reviews'.format(password, host, user))
 
-# cursor = connection.cursor()
+fs = pd.read_csv('ETL/data/usableData/characteristic_reviews.csv')
 
-test = pd.read_csv('ETL/data/SDC Application Data - Atelier Project (_Clean_ Data Set) 2/reviews.csv')
+print(fs)
 
-cleanDB = test.dropna(inplace=True)
-
-print(cleanDB)
+# fs.to_sql('testTable', connection, if_exists='replace', chunksize='100')

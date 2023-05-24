@@ -35,8 +35,7 @@ CREATE TABLE "Main/IndividualReview"(
     "Body" TEXT NOT NULL,
     "Date" DATE NOT NULL,
     "ReviewerName" VARCHAR(255) NOT NULL,
-    "Helpfulness" INTEGER NOT NULL,
-    "column_11" BIGINT NOT NULL
+    "Helpfulness" INTEGER NOT NULL
 );
 ALTER TABLE
     "Main/IndividualReview" ADD PRIMARY KEY("ReviewID");
