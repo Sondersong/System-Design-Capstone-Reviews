@@ -36,11 +36,3 @@ CREATE TABLE "Characteristic_Reviews"(
 );
 ALTER TABLE
     "Characteristic_Reviews" ADD PRIMARY KEY("id");
-ALTER TABLE
-    "Reviews" ADD CONSTRAINT "reviews_product_id_foreign" FOREIGN KEY("product_id") REFERENCES "Characteristics"("product_id");
-ALTER TABLE
-    "Reviews_Photos" ADD CONSTRAINT "reviews_photos_review_id_foreign" FOREIGN KEY("review_id") REFERENCES "Reviews"("id");
-ALTER TABLE
-    "Characteristic_Reviews" ADD CONSTRAINT "characteristic_reviews_characteristic_id_foreign" FOREIGN KEY("characteristic_id") REFERENCES "Characteristics"("id");
-ALTER TABLE
-    "Characteristic_Reviews" ADD CONSTRAINT "characteristic_reviews_review_id_foreign" FOREIGN KEY("review_id") REFERENCES "Reviews"("id");
