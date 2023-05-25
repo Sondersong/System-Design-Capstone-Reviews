@@ -8,7 +8,7 @@ host = os.getenv('ADDRESS')
 user = os.getenv('ACCOUNT')
 password = os.getenv('PASSWORD')
 
-connection = psycopg2.connect(host=host, dbname='SDC-Reviews', user=user, password=password)
+connection = psycopg2.connect(host=host, dbname='Raw-SDC-Reviews', user=user, password=password)
 
 cursor = connection.cursor()
 
