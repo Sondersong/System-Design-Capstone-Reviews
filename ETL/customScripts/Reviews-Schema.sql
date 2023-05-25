@@ -1,7 +1,7 @@
 CREATE TABLE "Photos"(
     "id" BIGINT NOT NULL,
-    "url" VARCHAR(255) NOT NULL,
-    "ReviewID" BIGINT NOT NULL
+    "ReviewID" BIGINT NOT NULL,
+    "url" VARCHAR(255) NOT NULL
 );
 ALTER TABLE
     "Photos" ADD PRIMARY KEY("id");

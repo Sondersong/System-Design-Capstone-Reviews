@@ -12,7 +12,7 @@ connection = psycopg2.connect(host=host, dbname='SDC-Reviews', user=user, passwo
 
 cursor = connection.cursor()
 
-f = open('ETL/Reviews-Schema.sql', 'r')
+f = open('ETL/RawDataStructure.sql', 'r')
 schema = f.read()
 f.close
 
