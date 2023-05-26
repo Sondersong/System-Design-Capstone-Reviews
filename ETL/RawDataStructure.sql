@@ -18,7 +18,7 @@ CREATE TABLE "Reviews"(
     "rating" BIGINT NOT NULL,
     "date" BIGINT NOT NULL,
     "summary" VARCHAR(255) NOT NULL,
-    "body" VARCHAR(255) NOT NULL,
+    "body" TEXT NOT NULL,
     "recommend" BOOLEAN NOT NULL,
     "reported" BOOLEAN NOT NULL,
     "reviewer_name" VARCHAR(255) NOT NULL,
